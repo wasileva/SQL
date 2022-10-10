@@ -1,0 +1,71 @@
+CREATE TABLE students(
+    student_id INT,
+    name VARCHAR(20) NOT NULL,
+    major VARCHAR(20) UNIQUE,
+    PRIMARY KEY(student_id)
+);
+
+CREATE TABLE students(
+    student_id INT,
+    name VARCHAR(20),
+    major VARCHAR(20) DEFAULT 'undecided',
+    PRIMARY KEY(student_id)
+);
+
+CREATE TABLE students(
+    student_id INT AUTO_INCREMENT,
+    name VARCHAR(20),
+    major VARCHAR(20),
+    PRIMARY KEY(student_id)
+);
+
+DESCRIBE students;
+DROP TABLE students;
+
+ALTER TABLE students ADD gpa DECIMAL(3,2);
+ALTER TABLE students DROP COLUMN gpa;
+
+UPDATE students
+SET major = 'Bio'
+WHERE major = 'Biology';
+
+UPDATE students
+SET major = 'Biology'
+WHERE student_id = 1;
+
+UPDATE students
+SET name = 'Olga', major = 'Mathematics'
+WHERE student_id = 1;
+
+UPDATE students
+SET major = 'Biochemestry'
+WHERE major = 'Bio' OR major ='Chemestry';
+
+DELETE FROM students
+WHERE name = 'Claire' AND major = 'Algebra';
+
+SELECT * FROM students;
+
+SELECT name, major
+FROM students
+ORDER BY name ASC
+LIMIT 3;
+
+SELECT *
+FROM students
+WHERE student_id <=3 AND name <> 'Kate';
+
+SELECT *
+FROM students
+WHERE name IN ('Olga', 'Kate', 'Harry');
+
+INSERT INTO students (name, major) VALUES('Maria', 'Biology');
+INSERT INTO students(name, major) VALUES('Kate', 'Sociology');
+
+INSERT INTO students VALUES(1, 'Maria', 'Sociology');
+INSERT INTO students VALUES(2, 'Kate', 'Sociology');
+INSERT INTO students VALUES(3, 'Claire', 'Algebra');
+INSERT INTO students(student_id, name) VALUES(3, 'Claire');
+INSERT INTO students VALUES(4, 'Jack', 'Biology');
+INSERT INTO students VALUES(5, 'Mike', 'Com.Scince');
+INSERT INTO students VALUES(6, 'Harry', 'Chemestry')
