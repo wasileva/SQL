@@ -1,3 +1,7 @@
+
+create database db150;
+use db150;
+
 CREATE TABLE students(
     student_id INT,
     name VARCHAR(20) NOT NULL,
